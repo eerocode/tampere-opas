@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tampereen ravintolat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo"><a href="index.html">Tampereen paikallisopas</a></div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <nav id="main-nav" class="site-nav">
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="nahtavyydet.html">Nähtävyydet</a></li>
+                <li><a href="ravintolat.html" aria-current="page">Ravintolat</a></li>
+                <li><a href="tekemista.html">Tekemistä</a></li>
+                <li><a href="info.html">Info</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <header class="page-header">
+            <h1>Tampereen ravintolat</h1>
+            <p>Tampere tarjoaa monipuolisen valikoiman ravintoloita joka makuun.</p>
+        </header>
+
+        <section class="card-list">
+
+            <article class="card">
+                <img src="images/napoli.jpg" alt="Pizzeria Napoli">
+                <h2>Pizzeria Napoli</h2>
+                <p>Legendaarinen tamperelainen pizzeria, joka tunnetaan valtavasta pizzavalikoimastaan.</p>
+            </article>
+
+            <article class="card">
+                <img src="images/huber.jpg" alt="Ravintola Huber">
+                <h2>Ravintola Huber</h2>
+                <p>Laadukas liharavintola, joka tunnetaan dry aged -pihveistään ja rennosta mutta tyylikkäästä
+                    tunnelmastaan.</p>
+            </article>
+
+            <article class="card">
+                <img src="images/stefans.jpg" alt="Stefan's Steakhouse">
+                <h2>Stefan's Steakhouse</h2>
+                <p>Huippukokki Stefan Richterin pihviravintola, joka tarjoaa laadukkaita liha-annoksia ja viihtyisän
+                    miljöön.</p>
+            </article>
+
+            <article class="card">
+                <img src="images/pincho.jpg" alt="Pincho Nation">
+                <h2>Pincho Nation</h2>
+                <p>Hauska ja värikäs ravintola, jossa ruoka tilataan sovelluksella ja tarjolla on pieniä annoksia eri
+                    makumaailmoista.</p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p><a href="info.html">Info ja yhteystiedot</a></p>
+        <p>&copy; 2026 Tampereen paikallisopas</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('main-nav');
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('nav-open');
+        });
+    </script>
+
+</body>
+
+</html>

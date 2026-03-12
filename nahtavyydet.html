@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tampereen nähtävyydet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo"><a href="index.html">Tampereen paikallisopas</a></div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <nav id="main-nav" class="site-nav">
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="nahtavyydet.html" aria-current="page">Nähtävyydet</a></li>
+                <li><a href="ravintolat.html">Ravintolat</a></li>
+                <li><a href="tekemista.html">Tekemistä</a></li>
+                <li><a href="info.html">Info</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <header class="page-header">
+            <h1>Tampereen nähtävyydet</h1>
+            <p>Tampere tarjoaa monipuolisia nähtävyyksiä historiallisista kohteista moderneihin elämyksiin.</p>
+        </header>
+
+        <section class="card-list">
+
+            <article class="card">
+                <img src="images/nasinneula.jpg" alt="Näsinneula">
+                <h2>Näsinneula</h2>
+                <p>Tampereen tunnetuin maamerkki, näkötornisekä ravintola, josta avautuu upeat näkymät yli kaupungin.
+                </p>
+            </article>
+
+            <article class="card">
+                <img src="images/pyynikki.jpg" alt="Pyynikin näkötorni">
+                <h2>Pyynikin näkötorni</h2>
+                <p>Kaunis harjualue, näkötorni ja herkulliset munkit kahvilassa.</p>
+            </article>
+
+            <article class="card">
+                <img src="images/sarkanniemi.jpg" alt="Särkänniemi">
+                <h2>Särkänniemi</h2>
+                <p>Huvipuisto sekä muita elämyksiä koko perheelle.</p>
+            </article>
+
+            <article class="card">
+                <img src="images/vapriikki.jpg" alt="Vapriikki">
+                <h2>Vapriikki</h2>
+                <p>Museokeskus, jossa vaihtuvia näyttelyitä ja tekemistä kaikenikäisille.</p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p><a href="info.html">Info ja yhteystiedot</a></p>
+        <p>&copy; 2026 Tampereen paikallisopas</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('main-nav');
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('nav-open');
+        });
+    </script>
+
+</body>
+
+</html>

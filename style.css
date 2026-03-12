@@ -1,0 +1,390 @@
+:root {
+    --bg: #0b1020;
+    --bg-alt: #151a2b;
+    --accent: #2f6fff;
+    --accent-soft: #1f3f8f;
+    --text: #f5f5f5;
+    --muted: #c0c4d0;
+    --card-bg: #1b2135;
+    --footer-bg: #0a0d18;
+    --focus: #ffcc33;
+    --max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Piilotettu ruudunlukijoille näkyvä teksti */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Yleinen asettelu */
+
+.site-header,
+.site-footer,
+main {
+    padding-inline: 16px;
+}
+
+main {
+    padding-block: 1.5rem 3rem;
+}
+
+@media (min-width: 768px) {
+
+    .site-header,
+    .site-footer,
+    main {
+        padding-inline: 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .site-header,
+    .site-footer,
+    main {
+        padding-inline: 80px;
+    }
+}
+
+/* Header ja navigaatio */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.75rem;
+    background: linear-gradient(to right, #050814, #10172b);
+    border-bottom: 1px solid #22283a;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.nav-toggle {
+    background: none;
+    border: 1px solid var(--accent-soft);
+    color: var(--text);
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.nav-toggle:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.site-nav {
+    display: none;
+}
+
+.site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: block;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    color: var(--text);
+}
+
+.site-nav a[aria-current="page"] {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* mobiilivalikko auki */
+.site-nav.nav-open {
+    display: block;
+    position: absolute;
+    top: 56px;
+    right: 16px;
+    background-color: var(--bg-alt);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .site-nav {
+        display: block;
+    }
+
+    .site-nav ul {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .site-nav.nav-open {
+        position: static;
+        box-shadow: none;
+        background: none;
+        padding: 0;
+    }
+
+    .site-nav a {
+        padding: 0;
+    }
+}
+
+/* Hero */
+
+.hero {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+.hero-text h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+    color: var(--muted);
+}
+
+@media (min-width: 768px) {
+    .hero {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        align-items: center;
+    }
+
+    .hero-image {
+        max-height: 320px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Intro ja CTA-kortit */
+
+.intro {
+    margin-top: 2rem;
+    max-width: var(--max-width);
+}
+
+.intro h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro p {
+    color: var(--muted);
+}
+
+.cta-grid {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+    max-width: var(--max-width);
+}
+
+.cta-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid #262c40;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.cta-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+}
+
+.cta-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.cta-card:hover,
+.cta-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
+}
+
+@media (min-width: 768px) {
+    .cta-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Sivukohtaiset otsikot ja korttilistat */
+
+.page-header {
+    max-width: var(--max-width);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: var(--muted);
+}
+
+.card-list {
+    display: grid;
+    gap: 1.25rem;
+    max-width: var(--max-width);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem 1.2rem;
+    border: 1px solid #262c40;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    max-height: 220px;
+    object-fit: cover;
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    font-size: 1.2rem;
+}
+
+.card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+@media (min-width: 900px) {
+    .card-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Lomake */
+
+form {
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+.form-field {
+    margin-bottom: 0.9rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #3a425a;
+    background-color: #0f1424;
+    color: var(--text);
+    font: inherit;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+button {
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Footer */
+
+.site-footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid #22283a;
+    padding: 1rem 16px 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+    text-decoration: underline;
+}

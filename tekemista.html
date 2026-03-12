@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tekemistä Tampereella</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo"><a href="index.html">Tampereen paikallisopas</a></div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <nav id="main-nav" class="site-nav">
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="nahtavyydet.html">Nähtävyydet</a></li>
+                <li><a href="ravintolat.html">Ravintolat</a></li>
+                <li><a href="tekemista.html" aria-current="page">Tekemistä</a></li>
+                <li><a href="info.html">Info</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <header class="page-header">
+            <h1>Tekemistä Tampereella</h1>
+            <p>Tampere tarjoaa monipuolisia aktiviteetteja luonnosta kulttuuriin ja urheiluun.</p>
+        </header>
+
+        <section class="card-list">
+
+            <article class="card">
+                <img src="images/ulkoilu.jpg" alt="Ulkoilua Tampereella">
+                <h2>Ulkoilu ja luonto</h2>
+                <p>Pyynikki, Kauppi ja monet muut ulkoilualueet tarjoavat kauniita ulkoilu reittejä ympäri vuoden.
+                    Kaupissa myös sisäliikuntaa.</p>
+            </article>
+
+            <article class="card">
+                <img src="images/tramppa.jpg" alt="Kulttuuri ja museot">
+                <h2>Rush trampoliini puisto</h2>
+                <p>Trampoliini park Rushissa voi vaikka koko perhe pomppi ja riehua.</p>
+            </article>
+
+            <article class="card">
+                <img src="images/tennis.jpg" alt="Urheilua Tampereella">
+                <h2>Tennis</h2>
+                <p>Tenniskeskuksella voit pelata tennistä ja padelia sisällä sekä ulkona</p>
+            </article>
+
+            <article class="card">
+                <img src="images/ranta.jpg" alt="Sesonkivinkit">
+                <h2>Uimarannat</h2>
+                <p>Kivoja uimarantoja ympäri kaupungin Näsi- ja pyhäjärvellä.</p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p><a href="info.html">Info ja yhteystiedot</a></p>
+        <p>&copy; 2026 Tampereen paikallisopas</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('main-nav');
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('nav-open');
+        });
+    </script>
+
+</body>
+
+</html>
